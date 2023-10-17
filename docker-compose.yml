@@ -1,9 +1,9 @@
-version: '3.8'
+version: "3.8"
 services:
-# container php
+  # container php
   php:
     build:
-      context: ./car_parking/
+      context: ./car-parking
       target: php
       args:
         - APP_ENV=${APP_ENV}
@@ -12,21 +12,23 @@ services:
       - CONTAINER_ROLE=app
     working_dir: /var/www
     volumes:
-      - ./car-parking:/var/www
+      - ./car-parking/:/var/www
     ports:
       - 8000:8000
     depends_on:
       - database_container_server
-# le container de base de données
-  database_container_server:
+  # le container de base de données
+  database_server:
     image: mysql:8.0
-    ports: 
+    ports:
       - 3306:3306
     environment:
       - MYSQL_DATABASE=${DB_DATABASE}
       - MYSQL_USER=${DB_USERNAME}
       - MYSQL_PASSWORD=${DB_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    env_file:
+      - ./car-parking/.env
     volumes:
       - db-datas:/var/lib/mysql
 volumes:

@@ -19,7 +19,7 @@ services:
     ports:
       - 3000:9000
     depends_on:
-      - mysql
+      - mysql_container
   # le container de base de données
   mysql_container:
     image: mysql:8.0
@@ -40,6 +40,6 @@ services:
       context: dockerfiles
       dockerfile: composer.dockerfile
     volumes:
-      ./car-parking:/var/www/html 
+      - ./car-parking:/var/www/html 
 volumes:
   db-datas: ~

@@ -1,22 +1,24 @@
 version: "3.8"
 services:
+  # nginx server
+  server_nginx:
+    image: 'nginx:stable-alpine'
+    ports:
+      - '8000:8080'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
   # container php
   php:
     build:
       context: ./car-parking
-      target: php
-      args:
-        - APP_ENV=${APP_ENV}
-    environment:
-      - APP_ENV=${APP_ENV}
-      - CONTAINER_ROLE=app
-    working_dir: /var/www
+      dockerfile: dockerfile
+
     volumes:
-      - ./car-parking/:/var/www
+      - ./car-parking:/var/www/html
     ports:
-      - 8000:8000
+      - 3000:9000
     depends_on:
-      - database_container_server
+      - database_server
   # le container de base de données
   database_server:
     image: mysql:8.0
@@ -31,5 +33,10 @@ services:
       - ./car-parking/.env
     volumes:
       - db-datas:/var/lib/mysql
+  #phpmyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 8888:80
 volumes:
   db-datas: ~

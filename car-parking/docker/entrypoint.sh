@@ -1,5 +1,5 @@
 #!/bin/bash
-chmod +x entrypoint.sh
+#!/usr/bin/env bash
 
 if [ !  -f "vendor/autoload.php" ]; then 
   composer install  --no-progress --no-interaction

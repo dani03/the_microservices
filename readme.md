@@ -15,7 +15,7 @@ Mon container nginx qui est mon server web ici, sera chargé de récupérer les 
 
 pour ma base de données j'ai utilisé mysql parce qu'il est le plus souvent couplé avec laravel et de ce fait plus simple a mettre en place 
 
-## le service Vue![Capture d’écran 2023-10-18 à 11 29 20](https://github.com/dani03/the_microservices/assets/25210422/4ea3066c-32df-4d7e-9416-429fef5fd801)
+## le service Vue
 
 
 le service vue ici represente la partie frontend de mon application qui est chargé d'envoyer des requetes emisent par l'utilisateur à mon server

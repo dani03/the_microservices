@@ -12,8 +12,6 @@ services:
   php:
     build:
       context: ./car-parking
-      dockerfile: dockerfile
-
     volumes:
       - ./car-parking:/var/www/html
     ports:

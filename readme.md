@@ -27,3 +27,15 @@ j'ai separé les outils comme COMPOSER ou encore NPM dans des containers qui son
 ## Image 
 ![Capture d’écran 2023-10-18 à 11 29 20](https://github.com/dani03/the_microservices/assets/25210422/93cd8286-26a7-4ede-99b8-3442f59ea63d)
 
+### dockerhub 
+push de 2 images sur le docker hub notament l'image du l'outil artisan de laravel 
+![Capture d’écran 2023-10-19 à 20 42 37](https://github.com/dani03/the_microservices/assets/25210422/97b94ffd-b90e-4000-b5cd-098cb190a23c)
+
+les images de mes containers on été builder sans erreur et arrivent a communiquer entre eux
+
+![Capture d’écran 2023-10-19 à 21 25 12](https://github.com/dani03/the_microservices/assets/25210422/931e4c5e-b8d2-4175-86e0-7886dd51f731)
+![Capture d’écran 2023-10-19 à 21 20 08](https://github.com/dani03/the_microservices/assets/25210422/f78b87bb-ed0a-4ca4-b192-7738576cd6e3)
+
+la base de données est bien alimentée 
+![Capture d’écran 2023-10-19 à 20 57 42](https://github.com/dani03/the_microservices/assets/25210422/75c0beb3-c01c-4136-9737-5fd38a18ff61)
+![Capture d’écran 2023-10-19 à 20 57 17](https://github.com/dani03/the_microservices/assets/25210422/e30510b8-9b77-4801-81d9-61cf565d9b9b)

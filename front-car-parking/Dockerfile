@@ -1,13 +1,13 @@
-FROM node:19
+FROM node:18
 
 WORKDIR /app
 
-COPY package.json  ./
+COPY ./front-car-parking/package.json  .
 
 RUN npm install
 
-COPY . .
+COPY ./front-car-parking .
 
-EXPOSE 3000
+EXPOSE 2000
 
 CMD ["npm", "run", "dev", "--", "--port 2000"]

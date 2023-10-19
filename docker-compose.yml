@@ -22,6 +22,7 @@ services:
       - ./car-parking:/var/www/html:delegated
     ports:
       - 3000:9000
+    image: dani03/php-for-microservices
 
   # le container de base de données
   mysql_container:
@@ -51,7 +52,7 @@ services:
     build:
       context: ./front-car-parking
     volumes:
-      - ./front-car-parking:/app
+      - ./front-car-parking:/usr/src/app/my-app
     ports:
       - 2000:2000
     depends_on:
@@ -69,6 +70,7 @@ services:
   artisan:
     build:
       context: ./car-parking
+    image: dani03/laravel-artisan-cli
     volumes:
       - ./car-parking:/var/www/html
     entrypoint: ["php", "/var/www/html/artisan"]

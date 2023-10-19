@@ -1,13 +1,16 @@
 FROM node:18
 
-WORKDIR /app
+WORKDIR /usr/src/app/my-app
 
-COPY ./front-car-parking/package.json  .
+
+COPY package*.json  .
+# COPY node_modules  .
+
+COPY . .
 
 RUN npm install
-
-COPY ./front-car-parking .
+# RUN npm run build
 
 EXPOSE 2000
 
-CMD ["npm", "run", "dev", "--", "--port 2000"]
+CMD ["npm", "run", "dev"]

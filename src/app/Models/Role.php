@@ -13,6 +13,10 @@ class Role extends Model
 
     protected $fillable = ['name'];
 
+    const ROLE_ADMINISTRATOR = 1;
+    const ROLE_USER = 2;
+    const ROLE_ENTREPRISE = 3;
+
     # nrelation many to many : on lit
     # un role à plusieurs permissions
     public function permissions(): BelongsToMany

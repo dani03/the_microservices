@@ -23,4 +23,9 @@ class UserRepository
       ]
     );
   }
+
+  public function findUserByEmail(String $email): User | null
+  {
+    return User::where('email', $email)->first();
+  }
 }

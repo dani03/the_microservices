@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Profil\ProfileController;
 use App\Http\Controllers\TestConnexionController;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -21,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('profil', [ProfileController::class, 'show'])->name('profil.show');
+});
+
 
 Route::get('test', TestConnexionController::class);
 Route::post('auth/register', RegisterController::class)->name('register');

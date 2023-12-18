@@ -8,7 +8,7 @@ clone le projet depuis ce repo avec la commande `git clone https://github.com/da
 
 placez vous ensuite dans le projet (quizDEV) `cd quizDEV`
 
-Une fois dans le dossier dans le terminal taper la commande `docker-compose run --rm composer update` afin d'installer les dependances du projet.
+Une fois dans le dossier dans le terminal taper la commande `docker-compose run --rm composer install` afin d'installer les dependances du projet.
 ensuite placer vous dans le dossier `src` copier le fichier `.env.exemple`et renomer le en `.env`.
 dans le fichier.env.exmple copier et coller le block suivant dans .env :
 

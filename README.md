@@ -7,7 +7,7 @@
 
  placez vous ensuite dans le projet (quizDEV) `cd quizDEV` 
  
- se placer dans le dossier `src` et effectuer la commande  `composer install` de puis votre términal afin d'installer les dépendances du projet. 
+ Une fois dans le dossier dans le terminal taper la commande `docker-compose run --rm composer install` afin d'installer les dependances du projet. 
 
 
 

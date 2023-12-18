@@ -1,4 +1,13 @@
 # quiz-dev
+ ceci est l'API de l'application QUIZDEV; 
+
+ ## instalation
+
+ clone le projet depuis ce repo avec la commande `git clone https://github.com/dani03/quizDEV.git ` dans un dossier. 
+
+ placez vous ensuite dans le projet (quizDEV) `cd quizDEV` 
+ 
+ se placer dans le dossier `src` et effectuer la commande  `composer install` de puis votre términal afin d'installer les dépendances du projet. 
 
 
 

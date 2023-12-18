@@ -134,6 +134,21 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/darkaonline/l5-swagger" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/zircote/swagger-php" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/swagger-api/swagger-ui" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/laravel-package-tools" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/dedoc/scramble" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/var-exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/knuckleswtf/scribe" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/mpociot/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/erusev/parsedown" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/shalvah/clara" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/shalvah/upgrader" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/data-transfer-object" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

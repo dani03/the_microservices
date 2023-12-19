@@ -22,12 +22,12 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
-Route::middleware('auth:api')->group(function () {
-    Route::get('profil', [ProfileController::class, 'show'])->name('profil.show');
-});
-
-
 Route::get('test', TestConnexionController::class);
 Route::post('auth/register', RegisterController::class)->name('register');
 Route::post('auth/login', LoginController::class)->name('login');
+
+// les routes ci dessous on besoin d'être authentifier avant d'être atteinte
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('profil', [ProfileController::class, 'show'])->name('profil.show');
+    Route::put('update/profil', [ProfileController::class, 'update'])->name('profil.update');
+});

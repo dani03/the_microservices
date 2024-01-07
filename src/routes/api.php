@@ -30,4 +30,5 @@ Route::post('auth/login', LoginController::class)->name('login');
 Route::middleware(['auth:api'])->group(function () {
     Route::get('profil', [ProfileController::class, 'show'])->name('profil.show');
     Route::put('update/profil', [ProfileController::class, 'update'])->name('profil.update');
+    Route::put('update/password', \App\Http\Controllers\Api\V1\PasswordUpdateController::class);
 });

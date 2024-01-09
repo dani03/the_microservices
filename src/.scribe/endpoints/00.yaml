@@ -67,7 +67,7 @@ endpoints:
         name: lastname
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: tpahysxtlw
+        example: xvrfsuvnmu
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -76,7 +76,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: wfpyzn
+        example: unqidmpl
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -85,7 +85,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: non
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -105,17 +105,17 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: melody.zieme@example.org
+        example: tyshawn.sporer@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      lastname: tpahysxtlw
-      name: wfpyzn
-      password: non
+      lastname: xvrfsuvnmu
+      name: unqidmpl
+      password: qui
       role_id: '3'
-      email: melody.zieme@example.org
+      email: tyshawn.sporer@example.net
     fileParameters: []
     responses: []
     responseFields: []
@@ -149,7 +149,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: imann@example.org
+        example: morar.roberto@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -158,14 +158,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: hic
+        example: deserunt
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: imann@example.org
-      password: hic
+      email: morar.roberto@example.net
+      password: deserunt
     fileParameters: []
     responses: []
     responseFields: []
@@ -238,7 +238,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: ward.eve@example.com
+        example: heloise.walsh@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -247,7 +247,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: sapiente
+        example: ratione
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -256,15 +256,95 @@ endpoints:
         name: lastname
         description: ''
         required: true
-        example: quisquam
+        example: quam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: ward.eve@example.com
-      name: sapiente
-      lastname: quisquam
+      email: heloise.walsh@example.org
+      name: ratione
+      lastname: quam
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/v1/update/password
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      current_password:
+        name: current_password
+        description: ''
+        required: true
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: dolorum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      current_password: quia
+      password: dolorum
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/logout
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

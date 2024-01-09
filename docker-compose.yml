@@ -5,6 +5,7 @@ networks:
     name: laravel_network
 
 services:
+  # le service nginx
   nginx:
     build:
       context: .
@@ -23,6 +24,7 @@ services:
       - phpmyadmin
 
   php:
+    # le service php
     build:
       context: .
       dockerfile: php.dockerfile
@@ -46,8 +48,9 @@ services:
       - ./mysql:/var/lib/mysql
     networks:
       - laravel_network
-  
+
   artisan:
+  # le service artisan afin de run les mmigrations 
     build:
       context: .
       dockerfile: php.dockerfile
@@ -60,6 +63,7 @@ services:
       - laravel_network
 
   composer:
+  # service composer afin d'installer les dependances
     image: composer:latest
     container_name: composer
     volumes:
@@ -67,6 +71,34 @@ services:
     working_dir: /var/www/html
     networks:
       - laravel_network
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3
+    container_name: elasticsearch
+    ports:
+      - 9200:9200
+    restart: always
+
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    depends_on:
+      - elasticsearch
+    image: docker.elastic.co/kibana/kibana:8.11.3
+    container_name: kibana
+    # volumes:
+    #   - kibana-data:/usr/share/kibana/data
+    ports:
+      - 5601:5601
+    restart: always
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

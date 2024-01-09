@@ -43,15 +43,15 @@ paths:
                 lastname:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: tpahysxtlw
+                  example: xvrfsuvnmu
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: wfpyzn
+                  example: unqidmpl
                 password:
                   type: string
                   description: ''
-                  example: non
+                  example: qui
                 role_id:
                   type: string
                   description: ''
@@ -62,7 +62,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: melody.zieme@example.org
+                  example: tyshawn.sporer@example.net
               required:
                 - lastname
                 - name
@@ -89,11 +89,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: imann@example.org
+                  example: morar.roberto@example.net
                 password:
                   type: string
                   description: ''
-                  example: hic
+                  example: deserunt
               required:
                 - email
                 - password
@@ -139,19 +139,57 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ward.eve@example.com
+                  example: heloise.walsh@example.org
                 name:
                   type: string
                   description: ''
-                  example: sapiente
+                  example: ratione
                 lastname:
                   type: string
                   description: ''
-                  example: quisquam
+                  example: quam
               required:
                 - email
                 - name
                 - lastname
+      security: []
+  /api/v1/update/password:
+    put:
+      summary: ''
+      operationId: putApiV1UpdatePassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: ''
+                  example: quia
+                password:
+                  type: string
+                  description: ''
+                  example: dolorum
+              required:
+                - current_password
+                - password
+      security: []
+  /api/v1/logout:
+    post:
+      summary: ''
+      operationId: postApiV1Logout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
       security: []
 tags:
   -

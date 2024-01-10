@@ -111,3 +111,4 @@ services:
       PMA_PASSWORD: secret
     networks:
       - laravel_network
+

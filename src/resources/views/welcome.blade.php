@@ -45,6 +45,17 @@
             </form>
         </div>
 
+        @auth
+            {{ auth()->user()->name }}
+            {{ auth()->user()->email }}
+        @endauth
+
+        @guest
+            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                href="{{ route('redirect.socialite', ['provider' => 'github']) }}"> se
+                connecter avec github</a>
+        @endguest
+
 
     </section>
 </body>

@@ -50,7 +50,7 @@ services:
       - laravel_network
 
   artisan:
-  # le service artisan afin de run les mmigrations 
+    # le service artisan afin de run les mmigrations
     build:
       context: .
       dockerfile: php.dockerfile
@@ -63,7 +63,7 @@ services:
       - laravel_network
 
   composer:
-  # service composer afin d'installer les dependances
+    # service composer afin d'installer les dependances
     image: composer:latest
     container_name: composer
     volumes:
@@ -71,7 +71,6 @@ services:
     working_dir: /var/www/html
     networks:
       - laravel_network
-
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3
@@ -98,6 +97,7 @@ services:
       - laravel_network
 
   kibana:
+  #serivice kibana 
     container_name: kibana
     image: docker.elastic.co/kibana/kibana:8.11.3
     restart: always
@@ -107,6 +107,24 @@ services:
       - elasticsearch
     networks:
       - laravel_network
+
+  logstash:
+    image: logstash:7.6.2
+    container_name: logstash
+    hostname: logstash
+    ports:
+      - 9600:9600
+      - 8089:8089
+    restart: always
+    links:
+      - elasticsearch:elasticsearch
+    depends_on:
+      - elasticsearch
+    networks:
+      - laravel_network
+    volumes:
+      - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -119,4 +137,3 @@ services:
       PMA_PASSWORD: secret
     networks:
       - laravel_network
-

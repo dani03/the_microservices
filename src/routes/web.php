@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\LocalController;
-use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +16,16 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+});
 
-Route::post('/page2', [LocalController::class, 'index'])->name('page2');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/oauth/{provider}/redirect', [SocialiteController::class, 'redirect'])->name('redirect.socialite');
-
-Route::get('oauth/{provider}/callback', [SocialiteController::class, 'callback'])->name('callback.social');
+require __DIR__.'/auth.php';

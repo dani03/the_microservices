@@ -109,7 +109,7 @@ services:
       - laravel_network
 
   logstash:
-    image: logstash:7.6.2
+    image: logstash:8.11.3
     container_name: logstash
     hostname: logstash
     ports:
@@ -126,6 +126,23 @@ services:
       - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
 
+  metricbeat:
+    image: docker.elastic.co/beats/metricbeat:8.11.3
+    container_name: metricbeat
+    user: root
+    command: /bin/sh -c "chmod go-w /usr/share/metricbeat/metricbeat.yml && metricbeat -e"
+    volumes:
+      - ./metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - laravel_network
+    depends_on:
+      - elasticsearch
+    healthcheck:
+      test: ["CMD-SHELL", "metricbeat test config -c /usr/share/metricbeat/metricbeat.yml"]
+      interval: 2s
+      
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
@@ -135,5 +152,11 @@ services:
       PMA_HOST: mysql
       PMA_USER: homestead
       PMA_PASSWORD: secret
+    networks:
+      - laravel_network
+  
+  npm: 
+    image: node:18
+    entrypoint: ["npm"]
     networks:
       - laravel_network

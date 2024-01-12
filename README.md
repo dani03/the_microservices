@@ -1,51 +1,41 @@
-# quiz-dev
+# L'architecture du projet
 
-ceci est l'API de l'application QUIZDEV;
+Dans ce projet j'ai choisi de travailler avec laravel  qui est un framework PHP pour la 
+partie backend de mon apllication et vue js pour la partie frontend.
 
-## instalation
+## Service PHP
+Ma machine va contenir le code source de mon application laravel, ce code source sera 
+expose a un container (service) dans lequel j'ai installé PHP.
 
-clone le projet depuis ce repo avec la commande `git clone https://github.com/dani03/quizDEV.git ` dans un dossier.
+## Service Nginx
 
-placez vous ensuite dans le projet (quizDEV) `cd quizDEV`
+Mon container nginx qui est mon server web ici, sera chargé de récupérer les requete envoyer par un service tier, pour l'envoyer au container PHP.
 
-Une fois dans le dossier dans le terminal taper la commande `docker-compose run --rm composer install` afin d'installer les dependances du projet.
-ensuite placer vous dans le dossier `src` copier le fichier `.env.exemple`et renomer le en `.env`.
-dans le fichier.env.exmple copier et coller le block suivant dans .env :
+## Service de BDD
 
-```
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=quizdevbdd
-DB_USERNAME=homestead
-DB_PASSWORD=secret
+pour ma base de données j'ai utilisé mysql parce qu'il est le plus souvent couplé avec laravel et de ce fait plus simple a mettre en place 
 
-```
+## le service Vue
 
-DB_CONNECTION=mysql , 'mysql' ici correspond au service (container) mysql qu'on peut voir dans le fichier docker-compose.yml à la racine du projet ainsi que le mot de passe (DB_PASSWORD) et le username (DB_USERNAME) tous definis dans le docker-compose.yml dans le service(container) mysql.
 
-Ensuite taper la commande `docker-compose run --rm artisan key:generate` afin de generer une clé unique pour notre application.
+le service vue ici represente la partie frontend de mon application qui est chargé d'envoyer des requetes emisent par l'utilisateur à mon server
 
-Une fois la clé générée, taper la commande `docker-compose up --build -d nginx` pour lancer vos containers, ensuite taper la commande `docker-compose ps` pour voir si vos containers tournent bien. vous pouvez tester l'api sur le endpoint `http://localhost/api/v1/test. vous devriez avoir un retour si vous êtes connecter à l'api.
 
-# PHP MY ADMIN
+### les services utilitaires
+j'ai separé les outils comme COMPOSER ou encore NPM dans des containers qui sont des gestionnaires de dependances de PHP et Javascript afin de pouvoir lancer les commandes plus facilement, ainsi que l'outil Artisan de laravel pour tout ce qui est execution de mande en ligne
 
-l'accès à PHpMyadmin est sur le port 2023 et donc sur le lien: http://localhost:2023
+## Image 
+![Capture d’écran 2023-10-18 à 11 29 20](https://github.com/dani03/the_microservices/assets/25210422/93cd8286-26a7-4ede-99b8-3442f59ea63d)
 
-username : homestead
-password : secret
+### dockerhub 
+push de 2 images sur le docker hub notament l'image du l'outil artisan de laravel 
+![Capture d’écran 2023-10-19 à 20 42 37](https://github.com/dani03/the_microservices/assets/25210422/97b94ffd-b90e-4000-b5cd-098cb190a23c)
 
-# La documentation des endpoints de l'API
+les images de mes containers on été builder sans erreur et arrivent a communiquer entre eux
 
-Pour voir les routes(endpoints) que vous pouvez utiliser vous pouvez avoir accès si vos containers sont en marche sur le lien: <a href="http://localhost:3002/docs/index.html">
-voir la doc.
-</a>
+![Capture d’écran 2023-10-19 à 21 25 12](https://github.com/dani03/the_microservices/assets/25210422/931e4c5e-b8d2-4175-86e0-7886dd51f731)
+![Capture d’écran 2023-10-19 à 21 20 08](https://github.com/dani03/the_microservices/assets/25210422/f78b87bb-ed0a-4ca4-b192-7738576cd6e3)
 
-# Gitignore
-
-```
-/mysql/*
-/front/.next
-/front/node_modules
-/front/README.md
-```
+la base de données est bien alimentée 
+![Capture d’écran 2023-10-19 à 20 57 42](https://github.com/dani03/the_microservices/assets/25210422/75c0beb3-c01c-4136-9737-5fd38a18ff61)
+![Capture d’écran 2023-10-19 à 20 57 17](https://github.com/dani03/the_microservices/assets/25210422/e30510b8-9b77-4801-81d9-61cf565d9b9b)

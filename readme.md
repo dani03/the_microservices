@@ -26,6 +26,7 @@ j'ai separé les outils comme COMPOSER ou encore NPM dans des containers qui son
 
 ## Image 
 ![Capture d’écran 2023-10-18 à 11 29 20](https://github.com/dani03/the_microservices/assets/25210422/93cd8286-26a7-4ede-99b8-3442f59ea63d)
+<img width="1153" alt="Capture d’écran 2024-01-12 à 15 02 22" src="https://github.com/dani03/the_microservices/assets/25210422/0780da6e-658a-47f3-86d8-49f6d872a9bd">
 
 ### dockerhub 
 push de 2 images sur le docker hub notament l'image du l'outil artisan de laravel 
